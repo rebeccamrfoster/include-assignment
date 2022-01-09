@@ -7,9 +7,7 @@ export default function App() {
 
   const handleSubmit = (name, number) => {
     const newItem = { "name": name, "number": number };
-    debugger
-    const newList = Array.from(list).concat(newItem);
-    setList(newList);
+    setList(list.concat(newItem));
   };
   debugger
   return (
