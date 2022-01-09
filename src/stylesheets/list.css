@@ -6,12 +6,59 @@
     align-items: center;
 }
 
+.list-title, label {
+    color: #1b4d89;
+}
+
+.list-form {
+    margin: 40px 0;
+}
+
+.list-form-check, .list-form-btn {
+    cursor: pointer;
+}
+
+.list-form-check {
+    border: none;
+}
+
+input {
+    padding: 6px;
+    margin: 12px;
+    border: none;
+    border-radius: 3px;
+}
+
+input[type="submit"]:hover {
+    background-color: #f9e45b;
+}
+
 table {
     width: 400px;
     border-collapse: collapse;
 }
 
 td, th {
-    border: 1px solid black;
+    border: 1px solid #1b4d89;
     padding: 8px;
+    color: #1b4d89;
+}
+
+input[type="submit"] {
+    color: #1b4d89;
+    padding: 6px 8px;
+    transition: all .3s ease;
+
+    /*
+        The excerpt below was borrowed from the following resource:
+        http://meyerweb.com/eric/tools/css/reset/ 
+        v2.0 | 20110126
+        License: none (public domain)
+    */
+    background-color: white;
+    -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+    overflow: visible;
+	width: auto;
 }
