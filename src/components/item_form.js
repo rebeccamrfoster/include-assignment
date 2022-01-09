@@ -10,10 +10,11 @@ export default function ItemForm({ handleSubmit }) {
     return (
         <div>
             <label>Add New Item:</label>
-            <form onSubmit={() => handleSubmit(name, number)}>
+            <form>
                 <input type="text" value={name} onChange={updateName} />
                 <input type="number" value={number} onChange={updateNumber} />
-                <input type="submit" onClick={() => handleSubmit(name, number)} />
+                <input type="submit" value="Add New Item"
+                    onClick={() => handleSubmit(name, number)} />
             </form>
         </div>
     )
