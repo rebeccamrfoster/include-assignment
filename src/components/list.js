@@ -21,9 +21,9 @@ export default function App() {
     };
 
     return (
-        <div>
-            <h1>Travel Checklist</h1>
-            <form>
+        <div className="list">
+            <h1 className="list-title">Travel Checklist</h1>
+            <form className="list-form">
                 <label>Item
                     <input type="text" value={name} onChange={updateName} />
                 </label>
@@ -32,11 +32,11 @@ export default function App() {
                 </label>
                 <label>Packed
                     <input type="checkbox" checked={checked ? "checked" : ""}
-                        onChange={updateChecked} />
+                        onChange={updateChecked} className="list-form-check" />
                 </label>
 
                 <input type="submit" value="Add New Item"
-                    onClick={handleSubmit} />
+                    onClick={handleSubmit} className="list-form-btn" />
             </form>
 
             <table>
