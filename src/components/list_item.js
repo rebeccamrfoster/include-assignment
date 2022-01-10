@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-export default function ListItem({ name, number, packed }) {
+export default function ListItem({ name, number, status }) {
     // Created state variable to hold status of checkbox, initializing it to 
-    // value of `packed` prop passed in from List component.
-    const [checked, setChecked] = useState(packed);
+    // value of `status` prop passed in from List component.
+    const [checked, setChecked] = useState(status);
 
     // Defined event handler to update `checked` state variable when checkbox 
     // is checked and unchecked, using bang (!) to toggle Boolean value.

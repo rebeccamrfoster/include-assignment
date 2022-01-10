@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../stylesheets/list.css";
 import ListItem from "./list_item";
 
@@ -28,16 +28,26 @@ export default function App() {
         // Created object to represent new item that user just typed out
         // and submitted, taking values from state variables.
         // const newItem = { "name": name, "number": number, "checked": checked };
+        // const newItem = Object.assign({}, item);
         // list.concat(newItem) will return the existing list with the newItem
         // appended, whereas list.push(newItem) would return the pushed item. 
         // Then reset the value of the `list` state variable to trigger re-render.
-        // setList(list.concat(item));
+        // setList([...list, item]);
+        // const newList = Array.from(list).concat(newItem);
+        // setList(newList, () => {
+        // });
         // Upon submission of form, inputs should clear, so reset state variables 
         // to default values. User can begin typing out next item.
         // setName("");
         // setNumber(0);
         // setChecked(false);
     // };
+
+    useEffect(() => {
+        debugger
+        let x = 4;
+        console.log(x);
+    }, [list])
 
     const update = event => {
         const { name, value } = event.target;
@@ -48,7 +58,6 @@ export default function App() {
             }))
         }
         else if (name === "checked") {
-            debugger
             const newItem = Object.assign({}, item);
             newItem.checked = !newItem.checked;
             setItem(newItem);
@@ -95,7 +104,8 @@ export default function App() {
                 {/* Added onClick property so when user clicks submit (or 
                 presses enter), handleSubmit function is invoked. */}
                 <input type="submit" value="Add New Item"
-                    onClick={() => setList(list.concat(item))} className="list-form-btn" />
+                    onClick={() => setList([...list, item])}
+                    className="list-form-btn" />
             </form>
 
             <table>
@@ -118,7 +128,7 @@ export default function App() {
                                 <ListItem key={item.name}
                                     name={item.name}
                                     number={item.number}
-                                    packed={item.checked} />
+                                    status={item.checked} />
                             )
                         }
                         )
