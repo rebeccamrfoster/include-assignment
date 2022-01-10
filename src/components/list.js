@@ -8,15 +8,18 @@ export default function App() {
     // initializing it to empty array since travel checklist is empty to begin.
     const [list, setList] = useState([]);
 
+    // Defined function to pass down to Form child component. Child will invoke
+    // function, passing in object containing new item's information, and 
+    // updateList function will set `list` state variable, triggering a re-render.
     const updateList = newItem => {
         setList([...list, newItem]);
     }
 
     useEffect(() => {
-        debugger
-        let x = 4;
-        console.log(x);
-    }, [list])
+        fetch("./data.json")
+            .then(response => response.json())
+            .then(data => setList(data))
+    }, [])
 
     return (
         <div className="list">
@@ -38,15 +41,12 @@ export default function App() {
                 The item's name, number, and packed status are passed down as props. */}
                 <tbody>
                     {
-                        list.map(item => {
-                            return (
-                                <ListItem key={item.name}
-                                    name={item.name}
-                                    number={item.number}
-                                    status={item.checked} />
-                            )
-                        }
-                        )
+                        list.map(item => (
+                            <ListItem key={item.name}
+                                name={item.name}
+                                number={item.number}
+                                status={item.checked} />
+                        ))
                     }
                 </tbody>
             </table>
