@@ -15,11 +15,11 @@ export default function App() {
         setList([...list, newItem]);
     }
 
-    useEffect(() => {
-        fetch("./data.json")
-            .then(response => response.json())
-            .then(data => setList(data))
-    }, [])
+    // useEffect(() => {
+    //     fetch("./data.json")
+    //         .then(response => response.json())
+    //         .then(data => setList(data))
+    // }, [])
 
     return (
         <div className="list">
